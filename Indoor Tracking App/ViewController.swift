@@ -22,8 +22,9 @@ var beaconList: [CLBeacon] = []
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    
     @IBOutlet weak var rssiLabel: UILabel!
+    @IBOutlet weak var majorLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -34,16 +35,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         locationManager.startRangingBeacons(satisfying: regionConstraint)
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
-        if beacons.count > 0 {
-            updateDistance(beacons[0].proximity, beacons[0].rssi)
-            print(beacons[0].rssi)
+        let knownBeacons = beacons.filter({$0.proximity != CLProximity.unknown})
+        if knownBeacons.count > 0 {
+            // updateDistance(beacons[0].proximity, beacons[0].rssi)
+            let closestBeacon = knownBeacons[0]
+            if closestBeacon.accuracy != -1.0 && closestBeacon.accuracy <= 1.0 {
+                updateColor(forBeacon: closestBeacon)
+            }
+            print(knownBeacons)
         } else {
-            updateDistance(.unknown, 0)
+            // updateDistance(.unknown, 0)
+        }
+    }
+    
+    func updateColor(forBeacon beacon: CLBeacon) {
+        majorLabel.text = "Major \(beacon.major)"
+        rssiLabel.text = "\(beacon.accuracy)"
+        switch beacon.major {
+        case 0:
+            imageView.image = UIImage(named: "coca-zero")
+        case 1:
+            imageView.image = UIImage(named: "coca-zero")
+        case 2:
+            imageView.image = UIImage(named: "coca-zero")
+        default:
+            fatalError()
         }
     }
     
