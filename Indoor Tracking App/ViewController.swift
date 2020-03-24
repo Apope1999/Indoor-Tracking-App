@@ -22,8 +22,6 @@ var beaconList: [CLBeacon] = []
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    @IBOutlet weak var rssiLabel: UILabel!
-    @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     
@@ -52,15 +50,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateColor(forBeacon beacon: CLBeacon) {
-        majorLabel.text = "Major \(beacon.major)"
-        rssiLabel.text = "\(beacon.accuracy)"
         switch beacon.major {
         case 0:
             imageView.image = UIImage(named: "coca-zero")
         case 1:
-            imageView.image = UIImage(named: "coca-zero")
+            imageView.image = UIImage(named: "chips")
         case 2:
-            imageView.image = UIImage(named: "coca-zero")
+            imageView.image = UIImage(named: "tissue-box")
         default:
             fatalError()
         }
@@ -71,20 +67,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             switch distance {
             case .unknown:
                 self.view.backgroundColor = UIColor.gray
-                self.rssiLabel.textColor = UIColor.black
             case .far:
                 self.view.backgroundColor = UIColor.blue
-                self.rssiLabel.textColor = UIColor.white
             case .near:
                 self.view.backgroundColor = UIColor.orange
-                self.rssiLabel.textColor = UIColor.white
             case .immediate:
                 self.view.backgroundColor = UIColor.red
-                self.rssiLabel.textColor = UIColor.white
             @unknown default:
                 fatalError()
             }
-            self.rssiLabel.text = "RSSI: " + String(rssi)
         }
     }
     
