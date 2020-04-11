@@ -19,4 +19,18 @@ struct K {
         static let productCellID = "ReusableProductCell"
         static let productCell = "ProductCell"
     }
+    
+    struct FStore {
+        struct Regions {
+            static let regions = "regions"
+            static let minor = "minor"
+            static let major = "major"
+            static let shelves = "shelves"
+        }
+        
+        struct Shelves {
+            static let shelves = "shelves"
+            static let products = "products"
+        }
+    }
 }

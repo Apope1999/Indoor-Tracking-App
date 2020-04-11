@@ -11,7 +11,6 @@ import UIKit
 
 struct Product {
     var name: String
-    var image: UIImage?
     var description: String
     var retailPrice: Double
     var wholesalePrice: Double

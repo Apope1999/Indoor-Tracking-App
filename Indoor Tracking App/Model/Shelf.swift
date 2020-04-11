@@ -9,6 +9,7 @@
 import Foundation
 
 struct Shelf {
-    var name: String
-    var Products: [Product] = []
+    let id: String
+    
+    var products: [String]
 }

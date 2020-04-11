@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 class ProductsViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class ProductsViewController: UIViewController {
     var selectedRow: Int?
     let locationManager = CLLocationManager()
     var beaconManager = BeaconManager()
+    var regionListener: ListenerRegistration?
+    var shelvesListener: ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +30,58 @@ class ProductsViewController: UIViewController {
         navigationItem.title = "Products"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        locationManager.requestAlwaysAuthorization()
+        
         locationManager.delegate = self
         beaconManager.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        regionListener = beaconManager.loadRegionsFromFirebaseListener()
+        shelvesListener = beaconManager.loadShelvesFromFirebaseListener()
+        
+        if let safeRegionConstraints = beaconManager.regionConstraint {
+            locationManager.startRangingBeacons(satisfying: safeRegionConstraints)
+        }
+        
+        productTableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        //regionListener?.remove()
+        //shelvesListener?.remove()
+        
+        if let safeRegionConstraints = beaconManager.regionConstraint {
+            locationManager.stopRangingBeacons(satisfying: safeRegionConstraints)
+        }
+    }
+    
+    
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
+        switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                beaconManager.requestRegionsWithNoPermission()
+            case .authorizedAlways, .authorizedWhenInUse:
+                break
+            @unknown default:
+            break
+        }
+        
+        productTableView.reloadData()
+        print(beaconManager.closestShelves)
     }
     
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
+    @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segues.showDetails {
             let productVC = segue.destination as! ProductDetailsViewController
             productVC.cellNumber = String(describing: selectedRow)
@@ -46,23 +92,30 @@ class ProductsViewController: UIViewController {
 //MARK: - Table View Data Source
 extension ProductsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        let shelfName = beaconManager.closestShelves[section]
+        let shelf = beaconManager.shelves.first(where: {$0.id == shelfName})
+        return shelf?.products.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return beaconManager.closestShelves.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Section"
+        label.text = "\(beaconManager.closestShelves[section])"
         label.backgroundColor = UIColor.systemGray
         return label
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cells.productCellID, for: indexPath) as! ProductCell
-        cell.productLabel.text = "\(indexPath.row)"
+        
+        let shelfName = beaconManager.closestShelves[indexPath.section]
+        let shelf = beaconManager.shelves.first(where: {$0.id == shelfName})
+        
+        cell.productLabel.text = "\(shelf!.products[indexPath.row])"
+        
         return cell
     }
 }
@@ -79,17 +132,31 @@ extension ProductsViewController: UITableViewDelegate {
 
 //MARK: - Location & Beacon Manager Delegate
 extension ProductsViewController: CLLocationManagerDelegate, BeaconManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
-        if beacons.count > 0 {
+        let knownBeacons = beacons.filter({$0.proximity != CLProximity.unknown})
+        if knownBeacons.count > 0 {
             beaconManager.updateRegionOrder(regions: beacons)
         }
     }
     
-    func didUpdateRegions(_ beaconManager: BeaconManager, regions: [Region]) {
+    func didUpdateRegions(_ beaconManager: BeaconManager, regions: [String]) {
         productTableView.reloadData()
     }
     
+    func startRanging(_ beaconManager: BeaconManager) {
+        if let safeRegionConstraints = beaconManager.regionConstraint {
+            locationManager.startRangingBeacons(satisfying: safeRegionConstraints)
+        }
+    }
+    
+    func stopRanging(_ beaconManager: BeaconManager) {
+        if let safeRegionConstraints = beaconManager.regionConstraint {
+            locationManager.stopRangingBeacons(satisfying: safeRegionConstraints)
+        }
+    }
+    
     func didFail() {
-        
+        print("I failed")
     }
 }

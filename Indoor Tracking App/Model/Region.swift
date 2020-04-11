@@ -10,8 +10,9 @@ import Foundation
 import CoreLocation
 
 struct Region {
+    let id: String
     let minor: CLBeaconMinorValue
     let major: CLBeaconMajorValue
     
-    var shelves: [Shelf]
+    var shelves: [String]
 }
