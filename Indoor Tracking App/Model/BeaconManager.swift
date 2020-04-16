@@ -22,10 +22,10 @@ class BeaconManager {
     let regionConstraint: CLBeaconIdentityConstraint?
     var regions: [Region] = []
     var shelves: [Shelf] = []
-    var products: [Product] = []
     var closestShelves: [String] = []
     var db = Firestore.firestore()
     var delegate: BeaconManagerDelegate?
+    
     
     
     init() {
@@ -95,10 +95,6 @@ extension BeaconManager {
         let tempShelf = Shelf(id: shelfId, products: products)
         shelves.append(tempShelf)
     }
-    
-//    func addNewProduct(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
 }
 
 //MARK: - Firebase Functions

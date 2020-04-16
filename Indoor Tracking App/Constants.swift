@@ -32,5 +32,12 @@ struct K {
             static let shelves = "shelves"
             static let products = "products"
         }
+        
+        struct Products {
+            static let products = "products"
+            static let description = "description"
+            static let retailPrice = "retailPrice"
+            static let wholeSalePrice = "wholesalePrice"
+        }
     }
 }

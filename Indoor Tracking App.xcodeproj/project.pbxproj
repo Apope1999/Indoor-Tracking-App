@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E016310242B6A45008B1BB5 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E068200242BB3CE003B5169 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0681FF242BB3CE003B5169 /* Constants.swift */; };
+		1E2AE6EB244897B1000C77D3 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AE6EA244897B1000C77D3 /* ProductManager.swift */; };
 		1E3DE4EB242A31B500DDE92F /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EA242A31B500DDE92F /* Region.swift */; };
 		1E3DE4ED242A31D100DDE92F /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EC242A31D100DDE92F /* Shelf.swift */; };
 		1E3DE4EF242A31E700DDE92F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EE242A31E700DDE92F /* Product.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1E0681FF242BB3CE003B5169 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1E2AE6EA244897B1000C77D3 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		1E3DE4EA242A31B500DDE92F /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		1E3DE4EC242A31D100DDE92F /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		1E3DE4EE242A31E700DDE92F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				1E3DE4EC242A31D100DDE92F /* Shelf.swift */,
 				1E3DE4EE242A31E700DDE92F /* Product.swift */,
 				1E3DE4F0242A336300DDE92F /* BeaconManager.swift */,
+				1E2AE6EA244897B1000C77D3 /* ProductManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */,
 				1E470539243B26F700755E6B /* ProductCell.swift in Sources */,
 				1E3DE4F1242A336300DDE92F /* BeaconManager.swift in Sources */,
+				1E2AE6EB244897B1000C77D3 /* ProductManager.swift in Sources */,
 				1E068200242BB3CE003B5169 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

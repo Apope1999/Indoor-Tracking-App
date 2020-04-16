@@ -10,15 +10,27 @@ import UIKit
 
 class ProductDetailsViewController: UIViewController {
     
-    var cellNumber: String?
+    var productString: String?
+    var product: Product?
+    var productManager = ProductManager()
     
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var retailPriceLabel: UILabel!
+    @IBOutlet weak var wholesalePriceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        descriptionLabel.text = cellNumber
+        productManager.delegate = self
+        
+        //self.navigationController?.navigationBar.prefersLargeTitles = false
+
+        if let productSafeString = productString {
+            navigationItem.title = productSafeString
+            productManager.loadProductFromFirebase(withName: productSafeString)
+        }
     }
     
     // MARK: - Navigation
@@ -26,7 +38,21 @@ class ProductDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segues.editProduct {
             let editProductVC = segue.destination as! EditProductViewController
-            editProductVC.cellNumber = cellNumber
+            
         }
+    }
+}
+
+extension ProductDetailsViewController: ProductManagerDelegate {
+    func didUpdateProductPage(_ beaconManager: ProductManager, product: Product) {
+        descriptionLabel.text = product.description
+        retailPriceLabel.text = "\(product.retailPrice)€"
+        wholesalePriceLabel.text = "\(product.wholesalePrice)€"
+    }
+    
+    
+    
+    func didFail() {
+        print("I failed")
     }
 }

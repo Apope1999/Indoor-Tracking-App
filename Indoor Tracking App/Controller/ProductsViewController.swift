@@ -13,7 +13,7 @@ import Firebase
 class ProductsViewController: UIViewController {
 
     @IBOutlet weak var productTableView: UITableView!
-    var selectedRow: Int?
+    var selectedProduct: String?
     let locationManager = CLLocationManager()
     var beaconManager = BeaconManager()
     var regionListener: ListenerRegistration?
@@ -84,7 +84,7 @@ class ProductsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segues.showDetails {
             let productVC = segue.destination as! ProductDetailsViewController
-            productVC.cellNumber = String(describing: selectedRow)
+            productVC.productString = selectedProduct
         }
     }
 }
@@ -123,9 +123,9 @@ extension ProductsViewController: UITableViewDataSource {
 //MARK: - Table View Delegate
 extension ProductsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRow = indexPath.row
+        let cell = tableView.cellForRow(at: indexPath) as? ProductCell
+        selectedProduct = cell?.productLabel.text
         performSegue(withIdentifier: K.segues.showDetails, sender: self)
-        let cell = tableView.cellForRow(at: indexPath)
         cell?.isSelected = false
     }
 }
