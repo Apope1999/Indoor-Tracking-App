@@ -129,7 +129,7 @@ extension BeaconManager {
             if let error = err {
                 print(error)
             } else {
-                self.regions = []
+                self.shelves = []
                 for document in documentSnapshot!.documents {
                     let id = document.documentID
                     let data = document.data()
