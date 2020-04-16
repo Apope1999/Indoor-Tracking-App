@@ -214,11 +214,19 @@
                         <viewLayoutGuide key="safeArea" id="tT0-YD-wae"/>
                     </view>
                     <navigationItem key="navigationItem" id="MvG-jf-3eh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="CZc-8s-2Jl">
-                            <connections>
-                                <segue destination="bye-UR-aUP" kind="presentation" identifier="editProduct" id="K72-q3-eQc"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="CZc-8s-2Jl">
+                                <connections>
+                                    <segue destination="bye-UR-aUP" kind="presentation" identifier="editProduct" id="K72-q3-eQc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="j4i-3n-NbP">
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="deletePressed:" destination="beT-d3-DV2" id="lpe-cR-SQv"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="T8l-ta-ZaY" id="Ezs-KO-Mvd"/>

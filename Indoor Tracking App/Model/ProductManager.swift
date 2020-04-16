@@ -11,6 +11,7 @@ import Firebase
 
 protocol ProductManagerDelegate {
     func didUpdateProductPage(_ beaconManager: ProductManager, product: Product)
+    //func didDeleteProduct(_ beaconManager: ProductManager)
     func didFail()
 }
 

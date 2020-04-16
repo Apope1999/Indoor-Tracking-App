@@ -33,6 +33,16 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Delete \(productString!)", message: "This action cannot be undone. Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            print("poof")
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
