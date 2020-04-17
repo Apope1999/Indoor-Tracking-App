@@ -14,6 +14,7 @@ class ProductsViewController: UIViewController {
 
     @IBOutlet weak var productTableView: UITableView!
     var selectedProduct: String?
+    var selectedProductSection: String?
     let locationManager = CLLocationManager()
     var beaconManager = BeaconManager()
     var regionListener: ListenerRegistration?
@@ -85,6 +86,7 @@ class ProductsViewController: UIViewController {
         if segue.identifier == K.segues.showDetails {
             let productVC = segue.destination as! ProductDetailsViewController
             productVC.productString = selectedProduct
+            productVC.productSection = selectedProductSection
         }
     }
 }
@@ -102,10 +104,10 @@ extension ProductsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = "\(beaconManager.closestShelves[section])"
-        label.backgroundColor = UIColor.systemGray
-        return label
+        let view = UITableViewHeaderFooterView()
+        view.textLabel?.text = "\(beaconManager.closestShelves[section])"
+        view.textLabel?.backgroundColor = UIColor.systemGray
+        return view
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,12 +120,19 @@ extension ProductsViewController: UITableViewDataSource {
         
         return cell
     }
+    
 }
 
 //MARK: - Table View Delegate
 extension ProductsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? ProductCell
+        
+        //
+        let sectionHeaderView = productTableView.headerView(forSection: indexPath.section)
+        selectedProductSection = sectionHeaderView?.textLabel?.text
+        //
+        
         selectedProduct = cell?.productLabel.text
         performSegue(withIdentifier: K.segues.showDetails, sender: self)
         cell?.isSelected = false

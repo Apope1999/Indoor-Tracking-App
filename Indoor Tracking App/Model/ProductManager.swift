@@ -11,7 +11,7 @@ import Firebase
 
 protocol ProductManagerDelegate {
     func didUpdateProductPage(_ beaconManager: ProductManager, product: Product)
-    //func didDeleteProduct(_ beaconManager: ProductManager)
+    func didDeleteProduct(_ beaconManager: ProductManager)
     func didFail()
 }
 
@@ -39,5 +39,23 @@ struct ProductManager {
                 self.delegate?.didUpdateProductPage(self, product: product)
             }
         }
+    }
+    
+    func deleteProductFromFirebase(withName productName: String, from shelfName: String) {
+        let shelvesCol = db.collection(K.FStore.Shelves.shelves).document(shelfName)
+        
+        shelvesCol.updateData([
+            K.FStore.Shelves.products: FieldValue.arrayRemove([productName])
+        ])
+        
+        db.collection(K.FStore.Products.products).document(productName).delete() { err in
+            if let error = err {
+                print(error)
+                self.delegate?.didFail()
+                return
+            }
+        }
+        
+        delegate?.didDeleteProduct(self)
     }
 }
