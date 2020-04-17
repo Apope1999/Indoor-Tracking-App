@@ -14,6 +14,7 @@ protocol BeaconManagerDelegate {
     func didUpdateRegions(_ beaconManager: BeaconManager, regions: [String])
     func startRanging(_ beaconManager: BeaconManager)
     func stopRanging(_ beaconManager: BeaconManager)
+    func didDeleteProduct(_ beaconManager: BeaconManager)
     func didFail()
 }
 
@@ -135,6 +136,24 @@ extension BeaconManager {
                 self.delegate?.startRanging(self)
             }
         }
+    }
+    
+    func deleteProductFromFirebase(withName productName: String, from shelfName: String) {
+        let shelvesCol = db.collection(K.FStore.Shelves.shelves).document(shelfName)
+        
+        shelvesCol.updateData([
+            K.FStore.Shelves.products: FieldValue.arrayRemove([productName])
+        ])
+        
+        db.collection(K.FStore.Products.products).document(productName).delete() { err in
+            if let error = err {
+                print(error)
+                self.delegate?.didFail()
+                return
+            }
+        }
+        
+        delegate?.didDeleteProduct(self)
     }
 }
 

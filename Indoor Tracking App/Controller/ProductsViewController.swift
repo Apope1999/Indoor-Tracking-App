@@ -121,6 +121,10 @@ extension ProductsViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
 }
 
 //MARK: - Table View Delegate
@@ -136,6 +140,18 @@ extension ProductsViewController: UITableViewDelegate {
         selectedProduct = cell?.productLabel.text
         performSegue(withIdentifier: K.segues.showDetails, sender: self)
         cell?.isSelected = false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let cell = tableView.cellForRow(at: indexPath) as? ProductCell
+            let sectionHeaderView = productTableView.headerView(forSection: indexPath.section)
+            
+            selectedProductSection = sectionHeaderView?.textLabel?.text
+            selectedProduct = cell?.productLabel.text
+            
+            beaconManager.deleteProductFromFirebase(withName: selectedProduct!, from: selectedProductSection!)
+        }
     }
 }
 
@@ -163,6 +179,10 @@ extension ProductsViewController: CLLocationManagerDelegate, BeaconManagerDelega
         if let safeRegionConstraints = beaconManager.regionConstraint {
             locationManager.stopRangingBeacons(satisfying: safeRegionConstraints)
         }
+    }
+    
+    func didDeleteProduct(_ beaconManager: BeaconManager) {
+        productTableView.reloadData()
     }
     
     func didFail() {
