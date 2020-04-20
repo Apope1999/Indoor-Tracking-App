@@ -19,6 +19,7 @@
 		1E47053C243B296400755E6B /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053B243B296400755E6B /* ProductsViewController.swift */; };
 		1E47053E243B406700755E6B /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053D243B406700755E6B /* ProductDetailsViewController.swift */; };
 		1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053F243B793D00755E6B /* EditProductViewController.swift */; };
+		1E851E51244DA0D800E1BEB1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E851E50244DA0D800E1BEB1 /* AddViewController.swift */; };
 		1ED9FCBE23D0B78D000D3B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCBD23D0B78D000D3B54 /* AppDelegate.swift */; };
 		1ED9FCC023D0B78D000D3B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCBF23D0B78D000D3B54 /* SceneDelegate.swift */; };
 		1ED9FCC223D0B78D000D3B54 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC123D0B78D000D3B54 /* WelcomeViewController.swift */; };
@@ -55,6 +56,7 @@
 		1E47053B243B296400755E6B /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		1E47053D243B406700755E6B /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		1E47053F243B793D00755E6B /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
+		1E851E50244DA0D800E1BEB1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		1ED9FCBA23D0B78D000D3B54 /* Indoor Tracking App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indoor Tracking App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED9FCBD23D0B78D000D3B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED9FCBF23D0B78D000D3B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				1E47053B243B296400755E6B /* ProductsViewController.swift */,
 				1E47053D243B406700755E6B /* ProductDetailsViewController.swift */,
 				1E47053F243B793D00755E6B /* EditProductViewController.swift */,
+				1E851E50244DA0D800E1BEB1 /* AddViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				1ED9FCC223D0B78D000D3B54 /* WelcomeViewController.swift in Sources */,
 				1E3DE4ED242A31D100DDE92F /* Shelf.swift in Sources */,
+				1E851E51244DA0D800E1BEB1 /* AddViewController.swift in Sources */,
 				1E47053E243B406700755E6B /* ProductDetailsViewController.swift in Sources */,
 				1ED9FCBE23D0B78D000D3B54 /* AppDelegate.swift in Sources */,
 				1ED9FCC023D0B78D000D3B54 /* SceneDelegate.swift in Sources */,

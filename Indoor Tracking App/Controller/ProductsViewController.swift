@@ -78,7 +78,7 @@ class ProductsViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
-        
+        performSegue(withIdentifier: K.segues.addMenu, sender: self)
     }
     
     

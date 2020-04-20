@@ -13,6 +13,9 @@ struct K {
         static let logOnSegue = "logOn"
         static let showDetails = "showDetails"
         static let editProduct = "editProduct"
+        static let addMenu = "addMenu"
+        static let addProduct = "addProduct"
+        static let addShelf = "addShelf"
     }
     
     struct cells {
