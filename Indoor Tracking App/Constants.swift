@@ -14,6 +14,7 @@ struct K {
         static let showDetails = "showDetails"
         static let editProduct = "editProduct"
         static let addMenu = "addMenu"
+        static let addRegion = "addRegion"
         static let addProduct = "addProduct"
         static let addShelf = "addShelf"
     }

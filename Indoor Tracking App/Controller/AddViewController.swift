@@ -18,6 +18,10 @@ class AddViewController: UIViewController {
     
 
     // MARK: - Navigation
+    @IBAction func addNewRegionPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: K.segues.addRegion, sender: self)
+    }
+    
     @IBAction func addNewShelfPressed(_ sender: UIButton) {
         performSegue(withIdentifier: K.segues.addShelf, sender: self)
     }
