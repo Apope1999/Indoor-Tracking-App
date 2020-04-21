@@ -13,6 +13,8 @@ import Firebase
 class ProductsViewController: UIViewController {
 
     @IBOutlet weak var productTableView: UITableView!
+    @IBOutlet weak var liveButton: UIBarButtonItem!
+    
     var selectedProduct: String?
     var selectedProductSection: String?
     let locationManager = CLLocationManager()
@@ -42,8 +44,14 @@ class ProductsViewController: UIViewController {
         regionListener = beaconManager.loadRegionsFromFirebaseListener()
         shelvesListener = beaconManager.loadShelvesFromFirebaseListener()
         
-        if let safeRegionConstraints = beaconManager.regionConstraint {
-            locationManager.startRangingBeacons(satisfying: safeRegionConstraints)
+        switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                beaconManager.requestRegionsWithNoPermission()
+            case .authorizedAlways, .authorizedWhenInUse:
+                beaconManager.liveMode = true
+                startRanging(beaconManager)
+            @unknown default:
+            break
         }
         
         productTableView.reloadData()
@@ -64,7 +72,7 @@ class ProductsViewController: UIViewController {
             case .notDetermined, .restricted, .denied:
                 beaconManager.requestRegionsWithNoPermission()
             case .authorizedAlways, .authorizedWhenInUse:
-                break
+                beaconManager.toggleLiveMode()
             @unknown default:
             break
         }
@@ -161,7 +169,13 @@ extension ProductsViewController: CLLocationManagerDelegate, BeaconManagerDelega
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
         let knownBeacons = beacons.filter({$0.proximity != CLProximity.unknown})
         if knownBeacons.count > 0 {
-            beaconManager.updateRegionOrder(regions: beacons)
+            var closeBeacons: [CLBeacon] = []
+            for beacon in knownBeacons {
+                if 0.0...5.0 ~= beacon.accuracy {
+                    closeBeacons.append(beacon)
+                }
+            }
+            beaconManager.updateRegionOrder(regions: closeBeacons)
         }
     }
     
@@ -183,6 +197,15 @@ extension ProductsViewController: CLLocationManagerDelegate, BeaconManagerDelega
     
     func didDeleteProduct(_ beaconManager: BeaconManager) {
         productTableView.reloadData()
+    }
+    
+    func didToggleLiveMode(_ beaconManager: BeaconManager, liveMode: Bool) {
+        productTableView.reloadData()
+        if liveMode {
+            liveButton.image = UIImage(systemName: "location")
+        } else {
+            liveButton.image = UIImage(systemName: "location.slash")
+        }
     }
     
     func didFail() {

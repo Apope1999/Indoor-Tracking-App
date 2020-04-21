@@ -15,6 +15,7 @@ protocol BeaconManagerDelegate {
     func startRanging(_ beaconManager: BeaconManager)
     func stopRanging(_ beaconManager: BeaconManager)
     func didDeleteProduct(_ beaconManager: BeaconManager)
+    func didToggleLiveMode(_ beaconManager: BeaconManager, liveMode: Bool)
     func didFail()
 }
 
@@ -26,7 +27,7 @@ class BeaconManager {
     var closestShelves: [String] = []
     var db = Firestore.firestore()
     var delegate: BeaconManagerDelegate?
-    
+    var liveMode: Bool?
     
     
     init() {
@@ -55,6 +56,7 @@ class BeaconManager {
     }
     
     func updateRegionOrder(regions: [CLBeacon]) {
+        if regions.isEmpty { return }
         closestShelves.removeAll(keepingCapacity: false)
         for beacon in regions {
             if let minor = CLBeaconMinorValue(exactly: beacon.minor), let major = CLBeaconMajorValue(exactly: beacon.major) {
@@ -83,6 +85,21 @@ class BeaconManager {
         
         delegate?.didUpdateRegions(self, regions: closestShelves)
     }
+    
+    func toggleLiveMode() {
+        guard let live = liveMode else { return }
+        
+        if liveMode! {
+            liveMode = false
+            delegate?.stopRanging(self)
+            requestRegionsWithNoPermission()
+            delegate?.didToggleLiveMode(self, liveMode: live)
+        } else {
+            liveMode = true
+            delegate?.startRanging(self)
+            delegate?.didToggleLiveMode(self, liveMode: live)
+        }
+    }
 }
 
 //MARK: - Update Local Model
@@ -101,7 +118,6 @@ extension BeaconManager {
 //MARK: - Firebase Functions
 extension BeaconManager {
     func loadRegionsFromFirebaseListener() -> ListenerRegistration {
-        delegate?.stopRanging(self)
         return db.collection(K.FStore.Regions.regions).addSnapshotListener { (documentSnapshot, err) in
             if let error = err {
                 print(error)
@@ -114,14 +130,12 @@ extension BeaconManager {
                     self.addNewRegion(regionId: id, minor: data[K.FStore.Regions.minor] as! CLBeaconMinorValue, major: data[K.FStore.Regions.major] as! CLBeaconMajorValue, shelves: data[K.FStore.Regions.shelves] as! [String])
                     print(self.regions)
                 }
-                self.delegate?.startRanging(self)
             }
         }
         
     }
     
     func loadShelvesFromFirebaseListener() -> ListenerRegistration {
-        delegate?.stopRanging(self)
         return db.collection(K.FStore.Shelves.shelves).addSnapshotListener { (documentSnapshot, err) in
             if let error = err {
                 print(error)
@@ -133,7 +147,6 @@ extension BeaconManager {
                     
                     self.addNewShelf(shelfId: id, products: data[K.FStore.Shelves.products] as! [String])
                 }
-                self.delegate?.startRanging(self)
             }
         }
     }

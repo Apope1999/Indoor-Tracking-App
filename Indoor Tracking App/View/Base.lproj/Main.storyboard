@@ -109,7 +109,7 @@
                                     <action selector="plusButtonPressed:" destination="5qA-QM-uw2" id="hc9-tk-rrf"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="location" catalog="system" id="SPe-mq-A6h">
+                            <barButtonItem title="Item" image="location.slash" catalog="system" id="SPe-mq-A6h">
                                 <connections>
                                     <action selector="refreshButtonPressed:" destination="5qA-QM-uw2" id="F8B-Pe-zcI"/>
                                 </connections>
@@ -117,6 +117,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="liveButton" destination="SPe-mq-A6h" id="9D4-p8-Ed1"/>
                         <outlet property="productTableView" destination="hjC-k5-qCw" id="5WG-sG-GOy"/>
                         <segue destination="beT-d3-DV2" kind="show" identifier="showDetails" id="oCl-pn-gQx"/>
                         <segue destination="7te-f8-uhF" kind="show" identifier="addMenu" id="lQN-TB-4ks"/>
@@ -366,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="3541.5999999999999" y="-1515.5172413793105"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Shelf View Controller-->
         <scene sceneID="ps7-Fs-y58">
             <objects>
-                <viewController id="Q9W-B8-Ia2" sceneMemberID="viewController">
+                <viewController id="Q9W-B8-Ia2" customClass="AddShelfViewController" customModule="Indoor_Tracking_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FVB-Pe-74j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,28 +385,48 @@
                                 <rect key="frame" x="172" y="323" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="Q9W-B8-Ia2" eventType="touchUpInside" id="keZ-13-ZPi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Shelf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uof-C7-E6S">
-                                <rect key="frame" x="16" y="252" width="136" height="26"/>
+                                <rect key="frame" x="16" y="205" width="136" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-3K-VBI">
+                                <rect key="frame" x="16" y="239" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3O-aH-NZM">
+                                <rect key="frame" x="121" y="239" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xgX-Ww-rYD"/>
                     </view>
                     <navigationItem key="navigationItem" id="lCD-CF-y4n"/>
+                    <connections>
+                        <outlet property="majorTextField" destination="5H7-3K-VBI" id="2yT-jN-e1m"/>
+                        <outlet property="minorTextField" destination="h3O-aH-NZM" id="F2Q-n8-tYt"/>
+                        <outlet property="nameTextField" destination="Md6-Tv-eoY" id="l2X-Bc-Me8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLf-WV-nBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4470" y="-1314"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Product View Controller-->
         <scene sceneID="EKV-Yh-HQ6">
             <objects>
-                <viewController id="MtC-v1-bhN" sceneMemberID="viewController">
+                <viewController id="MtC-v1-bhN" customClass="AddProductViewController" customModule="Indoor_Tracking_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNW-d1-8cD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,6 +458,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="location" catalog="system" width="128" height="115"/>
+        <image name="location.slash" catalog="system" width="128" height="115"/>
     </resources>
 </document>
