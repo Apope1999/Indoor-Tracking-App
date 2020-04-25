@@ -18,7 +18,6 @@
 		1E47053A243B26F700755E6B /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E470538243B26F700755E6B /* ProductCell.xib */; };
 		1E47053C243B296400755E6B /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053B243B296400755E6B /* ProductsViewController.swift */; };
 		1E47053E243B406700755E6B /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053D243B406700755E6B /* ProductDetailsViewController.swift */; };
-		1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053F243B793D00755E6B /* EditProductViewController.swift */; };
 		1E851E51244DA0D800E1BEB1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E851E50244DA0D800E1BEB1 /* AddViewController.swift */; };
 		1E93911B244DB11000E28A1F /* AddRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93911A244DB11000E28A1F /* AddRegionViewController.swift */; };
 		1E93911D244DB1B100E28A1F /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93911C244DB1B100E28A1F /* RegionManager.swift */; };
@@ -61,7 +60,6 @@
 		1E470538243B26F700755E6B /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		1E47053B243B296400755E6B /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		1E47053D243B406700755E6B /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
-		1E47053F243B793D00755E6B /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
 		1E851E50244DA0D800E1BEB1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		1E93911A244DB11000E28A1F /* AddRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegionViewController.swift; sourceTree = "<group>"; };
 		1E93911C244DB1B100E28A1F /* RegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				1ED9FCC123D0B78D000D3B54 /* WelcomeViewController.swift */,
 				1E47053B243B296400755E6B /* ProductsViewController.swift */,
 				1E47053D243B406700755E6B /* ProductDetailsViewController.swift */,
-				1E47053F243B793D00755E6B /* EditProductViewController.swift */,
 				1E851E50244DA0D800E1BEB1 /* AddViewController.swift */,
 				1E93911A244DB11000E28A1F /* AddRegionViewController.swift */,
 				1EFC1618244F2E5200F278FB /* AddShelfViewController.swift */,
@@ -327,7 +324,6 @@
 				1E47053C243B296400755E6B /* ProductsViewController.swift in Sources */,
 				1E3DE4EB242A31B500DDE92F /* Region.swift in Sources */,
 				1E3DE4EF242A31E700DDE92F /* Product.swift in Sources */,
-				1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */,
 				1E470539243B26F700755E6B /* ProductCell.swift in Sources */,
 				1E3DE4F1242A336300DDE92F /* BeaconManager.swift in Sources */,
 				1E93911D244DB1B100E28A1F /* RegionManager.swift in Sources */,

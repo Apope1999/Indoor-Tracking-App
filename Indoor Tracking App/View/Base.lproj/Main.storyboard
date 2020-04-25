@@ -220,19 +220,12 @@
                         <viewLayoutGuide key="safeArea" id="tT0-YD-wae"/>
                     </view>
                     <navigationItem key="navigationItem" id="MvG-jf-3eh">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="CZc-8s-2Jl">
-                                <connections>
-                                    <segue destination="bye-UR-aUP" kind="presentation" identifier="editProduct" id="K72-q3-eQc"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="trash" id="j4i-3n-NbP">
-                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="deletePressed:" destination="beT-d3-DV2" id="lpe-cR-SQv"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="j4i-3n-NbP">
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="beT-d3-DV2" id="lpe-cR-SQv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="T8l-ta-ZaY" id="Ezs-KO-Mvd"/>
@@ -243,33 +236,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJ4-zJ-ruc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3613.5999999999999" y="134.48275862068965"/>
-        </scene>
-        <!--Edit Product View Controller-->
-        <scene sceneID="Ah0-56-VNU">
-            <objects>
-                <viewController id="bye-UR-aUP" customClass="EditProductViewController" customModule="Indoor_Tracking_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="E9U-dQ-gNc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmI-Zt-qaq">
-                                <rect key="frame" x="16" y="369" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="pgb-wA-FtC"/>
-                    </view>
-                    <connections>
-                        <outlet property="label" destination="vmI-Zt-qaq" id="5GY-RQ-5oY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DlF-1E-Hch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4348" y="133.74384236453201"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="zjY-ey-aeH">
