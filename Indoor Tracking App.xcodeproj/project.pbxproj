@@ -3,27 +3,83 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E016310242B6A45008B1BB5 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E068200242BB3CE003B5169 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0681FF242BB3CE003B5169 /* Constants.swift */; };
+		1E2AE6EB244897B1000C77D3 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AE6EA244897B1000C77D3 /* ProductManager.swift */; };
+		1E3DE4EB242A31B500DDE92F /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EA242A31B500DDE92F /* Region.swift */; };
+		1E3DE4ED242A31D100DDE92F /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EC242A31D100DDE92F /* Shelf.swift */; };
+		1E3DE4EF242A31E700DDE92F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4EE242A31E700DDE92F /* Product.swift */; };
+		1E3DE4F1242A336300DDE92F /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3DE4F0242A336300DDE92F /* BeaconManager.swift */; };
+		1E470539243B26F700755E6B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E470537243B26F700755E6B /* ProductCell.swift */; };
+		1E47053A243B26F700755E6B /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E470538243B26F700755E6B /* ProductCell.xib */; };
+		1E47053C243B296400755E6B /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053B243B296400755E6B /* ProductsViewController.swift */; };
+		1E47053E243B406700755E6B /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053D243B406700755E6B /* ProductDetailsViewController.swift */; };
+		1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E47053F243B793D00755E6B /* EditProductViewController.swift */; };
+		1E851E51244DA0D800E1BEB1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E851E50244DA0D800E1BEB1 /* AddViewController.swift */; };
+		1E93911B244DB11000E28A1F /* AddRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93911A244DB11000E28A1F /* AddRegionViewController.swift */; };
+		1E93911D244DB1B100E28A1F /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93911C244DB1B100E28A1F /* RegionManager.swift */; };
 		1ED9FCBE23D0B78D000D3B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCBD23D0B78D000D3B54 /* AppDelegate.swift */; };
 		1ED9FCC023D0B78D000D3B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCBF23D0B78D000D3B54 /* SceneDelegate.swift */; };
-		1ED9FCC223D0B78D000D3B54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC123D0B78D000D3B54 /* ViewController.swift */; };
+		1ED9FCC223D0B78D000D3B54 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC123D0B78D000D3B54 /* WelcomeViewController.swift */; };
 		1ED9FCC523D0B78D000D3B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC323D0B78D000D3B54 /* Main.storyboard */; };
 		1ED9FCC723D0B792000D3B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC623D0B792000D3B54 /* Assets.xcassets */; };
 		1ED9FCCA23D0B792000D3B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED9FCC823D0B792000D3B54 /* LaunchScreen.storyboard */; };
+		1EF15341242A7A3E00F78C2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF15340242A7A3E00F78C2F /* GoogleService-Info.plist */; };
+		1EFC1619244F2E5200F278FB /* AddShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC1618244F2E5200F278FB /* AddShelfViewController.swift */; };
+		1EFC161B244F2F6E00F278FB /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC161A244F2F6E00F278FB /* AddProductViewController.swift */; };
+		1EFC161D244F2FC200F278FB /* ShelfManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC161C244F2FC200F278FB /* ShelfManager.swift */; };
+		46B9C20A6C0A06048A3A0D06 /* Pods_Indoor_Tracking_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911B72953FEF40BE8655433C /* Pods_Indoor_Tracking_App.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1E016311242B6A46008B1BB5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1E016310242B6A45008B1BB5 /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1E0681FF242BB3CE003B5169 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1E2AE6EA244897B1000C77D3 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		1E328E3A244DAA340031ACAC /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3DE4EA242A31B500DDE92F /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		1E3DE4EC242A31D100DDE92F /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		1E3DE4EE242A31E700DDE92F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1E3DE4F0242A336300DDE92F /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		1E470537243B26F700755E6B /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		1E470538243B26F700755E6B /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		1E47053B243B296400755E6B /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		1E47053D243B406700755E6B /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		1E47053F243B793D00755E6B /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
+		1E851E50244DA0D800E1BEB1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		1E93911A244DB11000E28A1F /* AddRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegionViewController.swift; sourceTree = "<group>"; };
+		1E93911C244DB1B100E28A1F /* RegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
 		1ED9FCBA23D0B78D000D3B54 /* Indoor Tracking App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indoor Tracking App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED9FCBD23D0B78D000D3B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED9FCBF23D0B78D000D3B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1ED9FCC123D0B78D000D3B54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1ED9FCC123D0B78D000D3B54 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1ED9FCC423D0B78D000D3B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ED9FCC623D0B792000D3B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ED9FCC923D0B792000D3B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ED9FCCB23D0B792000D3B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EF15340242A7A3E00F78C2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EFC1618244F2E5200F278FB /* AddShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShelfViewController.swift; sourceTree = "<group>"; };
+		1EFC161A244F2F6E00F278FB /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		1EFC161C244F2FC200F278FB /* ShelfManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfManager.swift; sourceTree = "<group>"; };
+		2E96D90BF0491D5E9611E6E2 /* Pods-Indoor Tracking App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Indoor Tracking App.debug.xcconfig"; path = "Target Support Files/Pods-Indoor Tracking App/Pods-Indoor Tracking App.debug.xcconfig"; sourceTree = "<group>"; };
+		911B72953FEF40BE8655433C /* Pods_Indoor_Tracking_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Indoor_Tracking_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52BF10A1D4FE04BE487D8A0 /* Pods-Indoor Tracking App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Indoor Tracking App.release.xcconfig"; path = "Target Support Files/Pods-Indoor Tracking App/Pods-Indoor Tracking App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +87,67 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B9C20A6C0A06048A3A0D06 /* Pods_Indoor_Tracking_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3DE4E7242A313E00DDE92F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E3DE4EA242A31B500DDE92F /* Region.swift */,
+				1E3DE4EC242A31D100DDE92F /* Shelf.swift */,
+				1E3DE4EE242A31E700DDE92F /* Product.swift */,
+				1E3DE4F0242A336300DDE92F /* BeaconManager.swift */,
+				1E2AE6EA244897B1000C77D3 /* ProductManager.swift */,
+				1E93911C244DB1B100E28A1F /* RegionManager.swift */,
+				1EFC161C244F2FC200F278FB /* ShelfManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E3DE4E8242A314900DDE92F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1ED9FCC323D0B78D000D3B54 /* Main.storyboard */,
+				1E470537243B26F700755E6B /* ProductCell.swift */,
+				1E470538243B26F700755E6B /* ProductCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E3DE4E9242A315800DDE92F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1ED9FCC123D0B78D000D3B54 /* WelcomeViewController.swift */,
+				1E47053B243B296400755E6B /* ProductsViewController.swift */,
+				1E47053D243B406700755E6B /* ProductDetailsViewController.swift */,
+				1E47053F243B793D00755E6B /* EditProductViewController.swift */,
+				1E851E50244DA0D800E1BEB1 /* AddViewController.swift */,
+				1E93911A244DB11000E28A1F /* AddRegionViewController.swift */,
+				1EFC1618244F2E5200F278FB /* AddShelfViewController.swift */,
+				1EFC161A244F2F6E00F278FB /* AddProductViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1EBC7B3B242B6EE400EA17B2 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		1ED9FCB123D0B78D000D3B54 = {
 			isa = PBXGroup;
 			children = (
 				1ED9FCBC23D0B78D000D3B54 /* Indoor Tracking App */,
 				1ED9FCBB23D0B78D000D3B54 /* Products */,
+				610237A6E2E8E54425EBFDC4 /* Pods */,
+				1EBC7B3B242B6EE400EA17B2 /* Recovered References */,
+				F6EE5507691D2028672C0261 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +164,34 @@
 			children = (
 				1ED9FCBD23D0B78D000D3B54 /* AppDelegate.swift */,
 				1ED9FCBF23D0B78D000D3B54 /* SceneDelegate.swift */,
-				1ED9FCC123D0B78D000D3B54 /* ViewController.swift */,
-				1ED9FCC323D0B78D000D3B54 /* Main.storyboard */,
+				1E3DE4E7242A313E00DDE92F /* Model */,
+				1E3DE4E8242A314900DDE92F /* View */,
+				1E3DE4E9242A315800DDE92F /* Controller */,
 				1ED9FCC623D0B792000D3B54 /* Assets.xcassets */,
 				1ED9FCC823D0B792000D3B54 /* LaunchScreen.storyboard */,
 				1ED9FCCB23D0B792000D3B54 /* Info.plist */,
+				1EF15340242A7A3E00F78C2F /* GoogleService-Info.plist */,
+				1E0681FF242BB3CE003B5169 /* Constants.swift */,
 			);
 			path = "Indoor Tracking App";
+			sourceTree = "<group>";
+		};
+		610237A6E2E8E54425EBFDC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E96D90BF0491D5E9611E6E2 /* Pods-Indoor Tracking App.debug.xcconfig */,
+				D52BF10A1D4FE04BE487D8A0 /* Pods-Indoor Tracking App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F6EE5507691D2028672C0261 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E328E3A244DAA340031ACAC /* iOSDropDown.framework */,
+				911B72953FEF40BE8655433C /* Pods_Indoor_Tracking_App.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ED9FCCE23D0B792000D3B54 /* Build configuration list for PBXNativeTarget "Indoor Tracking App" */;
 			buildPhases = (
+				F9599D285733083CE33D5BF0 /* [CP] Check Pods Manifest.lock */,
 				1ED9FCB623D0B78D000D3B54 /* Sources */,
 				1ED9FCB723D0B78D000D3B54 /* Frameworks */,
 				1ED9FCB823D0B78D000D3B54 /* Resources */,
+				1E016311242B6A46008B1BB5 /* Embed Frameworks */,
+				31079F71525FFD972FFD32C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -93,6 +223,9 @@
 		1ED9FCB223D0B78D000D3B54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Apostolos Pezodromou";
@@ -126,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ED9FCCA23D0B792000D3B54 /* LaunchScreen.storyboard in Resources */,
+				1EF15341242A7A3E00F78C2F /* GoogleService-Info.plist in Resources */,
+				1E47053A243B26F700755E6B /* ProductCell.xib in Resources */,
 				1ED9FCC723D0B792000D3B54 /* Assets.xcassets in Resources */,
 				1ED9FCC523D0B78D000D3B54 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +268,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31079F71525FFD972FFD32C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Indoor Tracking App/Pods-Indoor Tracking App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Indoor Tracking App/Pods-Indoor Tracking App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Indoor Tracking App/Pods-Indoor Tracking App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9599D285733083CE33D5BF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Indoor Tracking App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1ED9FCB623D0B78D000D3B54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED9FCC223D0B78D000D3B54 /* ViewController.swift in Sources */,
+				1ED9FCC223D0B78D000D3B54 /* WelcomeViewController.swift in Sources */,
+				1E3DE4ED242A31D100DDE92F /* Shelf.swift in Sources */,
+				1E851E51244DA0D800E1BEB1 /* AddViewController.swift in Sources */,
+				1EFC1619244F2E5200F278FB /* AddShelfViewController.swift in Sources */,
+				1E93911B244DB11000E28A1F /* AddRegionViewController.swift in Sources */,
+				1E47053E243B406700755E6B /* ProductDetailsViewController.swift in Sources */,
 				1ED9FCBE23D0B78D000D3B54 /* AppDelegate.swift in Sources */,
 				1ED9FCC023D0B78D000D3B54 /* SceneDelegate.swift in Sources */,
+				1EFC161B244F2F6E00F278FB /* AddProductViewController.swift in Sources */,
+				1E47053C243B296400755E6B /* ProductsViewController.swift in Sources */,
+				1E3DE4EB242A31B500DDE92F /* Region.swift in Sources */,
+				1E3DE4EF242A31E700DDE92F /* Product.swift in Sources */,
+				1E470540243B793D00755E6B /* EditProductViewController.swift in Sources */,
+				1E470539243B26F700755E6B /* ProductCell.swift in Sources */,
+				1E3DE4F1242A336300DDE92F /* BeaconManager.swift in Sources */,
+				1E93911D244DB1B100E28A1F /* RegionManager.swift in Sources */,
+				1E2AE6EB244897B1000C77D3 /* ProductManager.swift in Sources */,
+				1EFC161D244F2FC200F278FB /* ShelfManager.swift in Sources */,
+				1E068200242BB3CE003B5169 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +475,11 @@
 		};
 		1ED9FCCF23D0B792000D3B54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E96D90BF0491D5E9611E6E2 /* Pods-Indoor Tracking App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 622XFR4289;
 				INFOPLIST_FILE = "Indoor Tracking App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -293,6 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IndoorTrackingAppApostolos.Indoor-Tracking-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Indoor Tracking Merchant Dev";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,9 +496,11 @@
 		};
 		1ED9FCD023D0B792000D3B54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D52BF10A1D4FE04BE487D8A0 /* Pods-Indoor Tracking App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 622XFR4289;
 				INFOPLIST_FILE = "Indoor Tracking App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IndoorTrackingAppApostolos.Indoor-Tracking-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Indoor Tracking Merchant Dev";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
