@@ -18,10 +18,10 @@ struct ShelfManager {
     var db = Firestore.firestore()
     var delegate: ShelfManagerDelegate?
     
-    func addNewShelf(named regionName: String, major: Int, minor: Int) {
+    func addNewShelf(named shelfName: String, major: Int, minor: Int) {
         let batch = db.batch()
         
-        let shelfRef = db.collection(K.FStore.Shelves.shelves).document(regionName)
+        let shelfRef = db.collection(K.FStore.Shelves.shelves).document(shelfName)
         batch.setData([K.FStore.Shelves.products : []], forDocument: shelfRef, merge: true)
         
         let regionQuery = db.collection(K.FStore.Regions.regions)
@@ -35,7 +35,7 @@ struct ShelfManager {
             } else {
                 for document in snapshot!.documents {
                     let docRef = self.db.collection(K.FStore.Regions.regions).document(document.documentID)
-                    batch.updateData([K.FStore.Regions.shelves: FieldValue.arrayUnion([regionName])], forDocument: docRef)
+                    batch.updateData([K.FStore.Regions.shelves: FieldValue.arrayUnion([shelfName])], forDocument: docRef)
                 }
                 
                 batch.commit { (err) in
