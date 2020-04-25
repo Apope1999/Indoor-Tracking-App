@@ -65,6 +65,10 @@ extension ProductDetailsViewController: ProductManagerDelegate {
         wholesalePriceLabel.text = "\(product.wholesalePrice)€"
     }
     
+    func didAddProduct(_ productManager: ProductManager) {
+        return
+    }
+    
     func didFail() {
         print("I failed")
     }

@@ -10,8 +10,9 @@ import Foundation
 import Firebase
 
 protocol ProductManagerDelegate {
-    func didUpdateProductPage(_ beaconManager: ProductManager, product: Product)
-    func didDeleteProduct(_ beaconManager: ProductManager)
+    func didUpdateProductPage(_ productManager: ProductManager, product: Product)
+    func didDeleteProduct(_ productManager: ProductManager)
+    func didAddProduct(_ productManager: ProductManager)
     func didFail()
 }
 
@@ -57,5 +58,33 @@ struct ProductManager {
         }
         
         delegate?.didDeleteProduct(self)
+    }
+    
+    func addProductToFirebase(withName productName: String, description: String, wholesalePrice: Double, retailPrice: Double, atShelf shelfName: String) {
+        let batch = db.batch()
+        
+        let productRef = db.collection(K.FStore.Products.products).document(productName)
+        batch.setData(
+            [
+                K.FStore.Products.description : description,
+                K.FStore.Products.retailPrice : retailPrice,
+                K.FStore.Products.wholeSalePrice : wholesalePrice
+        ], forDocument: productRef, merge: true)
+        
+        let shelfRef = db.collection(K.FStore.Shelves.shelves).document(shelfName)
+        
+        batch.updateData(
+            [
+                K.FStore.Shelves.products : FieldValue.arrayUnion([productName])
+        ], forDocument: shelfRef)
+        
+        batch.commit { (err) in
+            if let error = err {
+                print(error)
+                self.delegate?.didFail()
+            } else {
+                self.delegate?.didAddProduct(self)
+            }
+        }
     }
 }
